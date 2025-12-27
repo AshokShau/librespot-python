@@ -54,6 +54,10 @@ class OAuth:
     def set_code(self, code):
         self.__code = code
 
+    def set_scopes(self, scopes):
+        self.__scopes = scopes
+        return self
+
     def request_token(self):
         if not self.__code:
             raise RuntimeError("You need to provide a code before!")
@@ -138,4 +142,3 @@ class OAuth:
     def __close(self):
         if self.__server:
             self.__server.shutdown()
-
